@@ -1,6 +1,10 @@
 !explore.
 
 +hypermediaArtifact(ArtifactIRI, ArtifactName, SemanticTypes)[artifact_name(WorkspaceName),artifact_id(WorkspaceId)]
+    : .member("https://example.org/Sink", SemanticTypes) & sink_artifact(ArtifactIRI, ArtifactName, ArtId)
+    <- .print("Re-discovered sink artifact").
+
++hypermediaArtifact(ArtifactIRI, ArtifactName, SemanticTypes)[artifact_name(WorkspaceName),artifact_id(WorkspaceId)]
     :  .member("https://example.org/Sink", SemanticTypes) & webid(MyWebID)
     <- .print("Creating sink artifact...");
        makeArtifact(ArtifactName, "org.hyperagents.jacamo.artifacts.wot.ThingArtifact", [ArtifactIRI], ArtId);

@@ -1,6 +1,7 @@
 +!explore
     :  home_workspace(HomeName, HomeWorkspaceIRI) & webid(MyWebID)
     <- .print("My home workspace IRI is: ", HomeWorkspaceIRI);
+       start; // starts the notification server
        +seen(HomeWorkspaceIRI, HomeName);
        makeArtifact(HomeName, "org.hyperagents.jacamo.artifacts.yggdrasil.WorkspaceThingArtifact", [HomeWorkspaceIRI], ArtId);
        focus(ArtId);
@@ -8,17 +9,18 @@
        .print("Created workspace artifact! Joining with WebID: ", MyWebID);
        joinHypermediaWorkspace[artifact_id(ArtId)];
        +joinedWsp(HomeWorkspaceIRI);
+       ?websub(HubIRI, TopicIRI)[artifact_id(ArtId)];
+       lookupArtifact(HomeName, HomeWkspId);
+       registerArtifactForWebSub(TopicIRI, HomeWkspId, HubIRI);
     .
 
-+parentHypermediaWorkspace(ParentIRI, ParentName, _)
-    :  not seen(_, ParentName)
-    <- makeArtifact(ParentName, "org.hyperagents.jacamo.artifacts.yggdrasil.WorkspaceThingArtifact", [ParentIRI], ArtId);
-       focus(ArtId);
-       +seen(ParentIRI, ParentName);
-    .
++parentHypermediaWorkspace(ParentIRI, ParentName, _) :  not seen(_, ParentName)
+    <- !loadWorkspace(ParentIRI, ParentName).
 
-+hypermediaWorkspace(WorkspaceIRI, WorkspaceName, _)
-    :  not seen(_, WorkspaceName)
++hypermediaWorkspace(WorkspaceIRI, WorkspaceName, _):  not seen(_, WorkspaceName)
+    <- !loadWorkspace(WorkspaceIRI, WorkspaceName).
+
++!loadWorkspace(WorkspaceIRI, WorkspaceName) :  not seen(_, WorkspaceName)
     <- makeArtifact(WorkspaceName, "org.hyperagents.jacamo.artifacts.yggdrasil.WorkspaceThingArtifact", [WorkspaceIRI], ArtId);
        focus(ArtId);
        +seen(WorkspaceIRI, WorkspaceName);
