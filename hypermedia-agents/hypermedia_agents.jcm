@@ -10,10 +10,14 @@ mas demo {
     }
 
     workspace alice_local {
+        artifact notification_server_alice: org.hyperagents.jacamo.artifacts.yggdrasil.NotificationServerArtifact("host.docker.internal", 9090)
+        
         agents: alice
     }
 
     workspace bob_local {
+        artifact notification_server_bob: org.hyperagents.jacamo.artifacts.yggdrasil.NotificationServerArtifact("host.docker.internal", 9091)
+
         agents: bob
     }
 

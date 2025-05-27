@@ -1,6 +1,10 @@
 !explore.
 
 +hypermediaArtifact(ArtifactIRI, ArtifactName, SemanticTypes)[artifact_name(WorkspaceName),artifact_id(WorkspaceId)]
+    : .member("https://example.org/Source", SemanticTypes) & source_artifact(_,_,_)
+    <- .print("Re-discovered source artifact").
+
++hypermediaArtifact(ArtifactIRI, ArtifactName, SemanticTypes)[artifact_name(WorkspaceName),artifact_id(WorkspaceId)]
     :  .member("https://example.org/Source", SemanticTypes) & webid(MyWebID)
     <- .print("Creating source artifact...");
        makeArtifact(ArtifactName, "org.hyperagents.jacamo.artifacts.wot.ThingArtifact", [ArtifactIRI], ArtId);

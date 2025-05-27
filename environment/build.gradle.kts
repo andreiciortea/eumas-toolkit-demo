@@ -19,7 +19,7 @@ repositories {
 }
 
 dependencies {
-    implementation(files("libs/yggdrasil.jar"))
+    implementation(files("libs/yggdrasil-0.0.0-SNAPSHOT-all.jar"))
 }
 
 application {

@@ -12,8 +12,7 @@ as described in its presenting paper submitted to the EUMAS toolkit papers track
 
 ## Setup
 
-The current repository structure uses [jacamo-hypermedia](https://github.com/HyperAgents/jacamo-hypermedia) but as a git submodule.
-So, you'll need to clone the repository recursively, along with its submodules.
+The current repository structure uses [jacamo-hypermedia](https://github.com/HyperAgents/jacamo-hypermedia) as a git submodule. So, you'll need to clone the repository recursively, along with its submodules.
 
 ### Cloning the Repository
 
@@ -39,12 +38,8 @@ At this point, you're ready for running the demo!
 
 ### Booting the environment nodes
 
-⚠️ Since the host needs access to the contaiRunners launched for the demo,
-please ensure ports 8080, 8081, and 8082 are available.
-If not,
-update the ports
-to open in all configuration files in the ```environment/src/main/resources/conf``` folder and also in the "hypermedia_agents.jcm"
-configuration file in the ```hypermedia-agents``` folder before building the JAR. ⚠️
+⚠️ Since the host needs access to the contaiRunners launched for the demo, please ensure ports 8080, 8081, and 8082 are available.
+If not, update the ports to open in all configuration files in the ```environment/src/main/resources/conf``` folder and also in the ```hypermedia_agents.jcm``` configuration file in the ```hypermedia-agents``` folder before building the JAR. ⚠️
 
 1. Build the Yggdrasil framework JAR file using the command: 
 
@@ -66,12 +61,9 @@ env_shared       | [vert.x-eventloop-thread-0] INFO io.vertx.core.impl.launcher.
 env_consumption  | [vert.x-eventloop-thread-0] INFO io.vertx.core.impl.launcher.commands.VertxIsolatedDeployer - Succeeded in deploying verticle
 ```
 
-⚠️ Pay attention to the fact that these messages could get buried between many others,
-so review the logs the containers produce with care! ⚠️
+⚠️ Pay attention to the fact that these messages could get buried between many others, so review the logs the containers produce with care! ⚠️
 
-Now, the agents can be booted in two ways,
-depending on if you're interested
-in seeing how agents can exploit the hypermedia properties of Yggdrasil's artifacts to their maximum or not.
+Now, the agents can be booted in two ways, depending on if you're interested in seeing how agents can exploit the hypermedia properties of Yggdrasil's artifacts to their maximum or not.
 
 ### Alternative #1: Booting Simple Agents
 
