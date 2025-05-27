@@ -4,6 +4,7 @@ import cartago.GUARD;
 import cartago.OPERATION;
 import cartago.OpFeedbackParam;
 import ch.unisg.ics.interactions.wot.td.schemas.ArraySchema;
+import ch.unisg.ics.interactions.wot.td.schemas.DataSchema;
 import ch.unisg.ics.interactions.wot.td.schemas.IntegerSchema;
 import org.hyperagents.yggdrasil.cartago.artifacts.HypermediaTDArtifact;
 
