@@ -19,7 +19,7 @@ The current repository structure uses [jacamo-hypermedia](https://github.com/Hyp
 1. Clone this repository using the following command:
 
 ```bash
-git clone --recursive git@github.com:cake-lier/eumas-toolkit-demo.git
+git clone --recursive git@github.com:andreiciortea/eumas-toolkit-demo.git
 ```
 
 2. Position yourself in the project folder, for example, using a command like the following:
